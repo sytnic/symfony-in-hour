@@ -29,4 +29,10 @@ https://symfony.com/doc/current/setup/web_server_configuration.html#apache
 
 https://stackoverflow.com/questions/50059794/symfony-4-an-error-occurred-while-loading-the-web-debug-toolbar
 
+## Twig
+
+https://symfony.com/doc/current/templates.html
+
+    composer require symfony/twig-bundle
+
 ##

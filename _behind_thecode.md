@@ -5,7 +5,9 @@
 
 ## Debug bar Error
 
-Если не загружается debug toolbar, нужна строчка в конфигурации Apache
+> Если не загружается debug toolbar, нужна строчка в конфигурации Apache
+
+> Это также влияет на работу маршрутов, которые иначе могут не работать!
 
     FallbackResource /index.php
 

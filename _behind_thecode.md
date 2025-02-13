@@ -69,8 +69,16 @@ https://github.com/symfony/recipes/blob/flex/main/RECIPES.md
     created: src/Controller/ProductController.php  
     created: templates/product/index.html.twig
 
-##
+## Route names
 
-    
+Фyнкции Twig
+
+https://symfony.com/doc/current/reference/twig_reference.html
+
+Просмотр маршрутов
+
+    bin/console debug:router
+
+## 
 
 

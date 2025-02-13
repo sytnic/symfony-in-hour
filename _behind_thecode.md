@@ -35,4 +35,40 @@ https://symfony.com/doc/current/templates.html
 
     composer require symfony/twig-bundle
 
+## Code generators
+
+https://symfony.com/bundles/SymfonyMakerBundle/current/index.html
+
+Аллиасы, другие названия для пакетов:
+
+https://github.com/symfony/recipes/blob/flex/main/RECIPES.md
+
+    php bin/console
+    php bin/console list
+
+    bin/console
+    bin/console list
+
+    composer require --dev symfony/maker-bundle
+    # или, благодаря аллиасу,
+    composer require maker --dev
+
+После установки `maker` появляется куча команд make:... в списке команд bin/console list .  
+
+Получение справки по командам bin/console:  
+
+    bin/console help make:controller
+
+Создать контроллер
+
+    bin/console make:controller Product
+
+    ->
+    created: src/Controller/ProductController.php  
+    created: templates/product/index.html.twig
+
 ##
+
+    
+
+

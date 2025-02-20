@@ -197,5 +197,15 @@ https://www.doctrine-project.org/projects/doctrine-orm/en/3.3/reference/attribut
 
 ## Migrations
 
+Создать файл миграции
 
+    bin/console make:migration
+
+Запустить миграцию для создания таблицы в БД
+
+    bin/console doctrine:migrations:migrate
+    
+    > yes
+
+## 
 

@@ -39,6 +39,8 @@ https://symfony.com/doc/current/templates.html
 
 ## Code generators
 
+> Наподобие php artisan в Laravel.
+
 https://symfony.com/bundles/SymfonyMakerBundle/current/index.html
 
 Аллиасы, другие названия для пакетов:
@@ -61,13 +63,18 @@ https://github.com/symfony/recipes/blob/flex/main/RECIPES.md
 
     bin/console help make:controller
 
-Создать контроллер
+Создать контроллер. Будет создан контроллер и шаблон.
 
     bin/console make:controller Product
 
     ->
     created: src/Controller/ProductController.php  
     created: templates/product/index.html.twig
+
+Также можно создать контроллер не указав сначали имени, а когда CLI  спросит, указать это имя маленькими буквами. Будет создан контроллер ProductController.php и шаблон.
+
+     bin/console make:controller
+     > product
 
 ## Route names
 
@@ -79,6 +86,38 @@ https://symfony.com/doc/current/reference/twig_reference.html
 
     bin/console debug:router
 
-## 
+## Databases
+
+Doctrine - доступ к БД наподобие PDO.
+
+https://symfony.com/doc/current/doctrine.html   
+https://symfony.ru/doc/current/doctrine.html
+
+Установка Doctrine
+
+    composer require symfony/orm-pack
+
+Далее - настроить .env файл в корне проекта.  
+Подсказки тут:  
+
+https://symfony.com/doc/current/doctrine.html#configuring-the-database
+
+https://symfony.ru/doc/current/doctrine.html#konfiguracia-bazy-dannyh
+
+В списке команд добавились команды Doctrine, посмотреть
+
+    bin/console list
+
+Создать БД (в env была настроена база SQlite)
+
+    bin/console doctrine:database:create 
+
+## Entities
+
+Объект класса Entities представляет собой отдельную запись в таблице базы данных.  
+
+
+
+
 
 

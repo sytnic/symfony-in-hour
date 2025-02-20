@@ -114,10 +114,88 @@ https://symfony.ru/doc/current/doctrine.html#konfiguracia-bazy-dannyh
 
 ## Entities
 
-Объект класса Entities представляет собой отдельную запись в таблице базы данных.  
+Объект класса Entities представляет собой отдельную запись в таблице базы данных.    
+Создаём entity (сущность) и класс репозитория.  
+Созданный файл entity (сущности) будет представлять собой одну таблицу.   
+
+    bin/console make:entity product
+
+Далее будет предложено ответить на вопросы м заполнить будущие свойства и поля
+
+```
+    root@e03c44a167a5:/var/www/html# bin/console make:entity product
+
+    created: src/Entity/Product.php
+    created: src/Repository/ProductRepository.php
+
+    Entity generated! Now let's add some fields!
+    You can always add more fields later manually or by re-running this command.
+
+    New property name (press <return> to stop adding fields):
+    > name
+
+    Field type (enter ? to see all types) [string]:
+    > string
+
+    Field length [255]:
+    > 128
+
+    Can this field be null in the database (nullable) (yes/no) [no]:
+    > no
+
+    updated: src/Entity/Product.php
+```
+
+Это означает, что поле `name` и его свойства добавлены.  
+Заполнение далее.  
+
+```
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ > description
+
+ Field type (enter ? to see all types) [string]:
+ > text
+
+ Can this field be null in the database (nullable) (yes/no) [no]:
+ > yes
+
+ updated: src/Entity/Product.php
 
 
 
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ > size
+
+ Field type (enter ? to see all types) [string]:
+ > integer
+
+ Can this field be null in the database (nullable) (yes/no) [no]:
+ >
+
+ updated: src/Entity/Product.php
+
+
+
+  Add another property? Enter the property name (or press <return> to stop adding fields):
+ >
+
+  Success!
+
+ Next: When you're ready, create a migration with php bin/console make:migration
+
+root@e03c44a167a5:/var/www/html#
+
+```
+
+Созданную сущность всё равно можно отредактировать вручную.
+
+Справочник по созданным атрибутам таблицы в официальной документации Doctrine:  
+
+https://www.doctrine-project.org/projects/doctrine-orm/en/3.3/reference/attributes-reference.html
+
+По созданной сущности после миграции будет создана таблица в БД.  
+
+## Migrations
 
 
 

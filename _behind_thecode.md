@@ -225,5 +225,47 @@ https://www.doctrine-project.org/projects/doctrine-orm/en/3.3/reference/attribut
 
 https://www.developerload.com/how-to-enter-adminer-without-password-closed
 
-##   
+## Fixtures
 
+Способ заполнить таблицу БД.  
+
+https://symfony.com/bundles/DoctrineFixturesBundle/current/index.html
+
+    composer require --dev doctrine/doctrine-fixtures-bundle
+
+Будет созданы папка и класс src\DataFixtures\AppFixtures.php
+
+```php
+    namespace App\DataFixtures;
+
+    use Doctrine\Bundle\FixturesBundle\Fixture;
+    use Doctrine\Persistence\ObjectManager;
+
+    class AppFixtures extends Fixture
+    {
+        public function load(ObjectManager $manager): void
+        {
+            // $product = new Product();
+            // $manager->persist($product);
+
+            $manager->flush();
+        }
+    }
+```
+
+Этот класс нужно доработать вручную, заполнить будущими данными таблицы.
+
+Далее команда, заполняющая таблицы.    
+Перед ее запуском все данные из таблиц будут удалены.  
+
+    bin/console doctrine:fixtures:load
+
+Если нужно только добавить некоторые данные, то тогда с флагом --append
+
+    bin/console doctrine:fixtures:load --append
+
+Прямо из командной строки можно вводить SQL запросы и просматривать базу данных:
+
+    bin/console dbal:run-sql "SELECT * FROM product"
+
+## 

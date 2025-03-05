@@ -218,7 +218,7 @@ https://www.doctrine-project.org/projects/doctrine-orm/en/3.3/reference/attribut
 Вход:
 - SQLite 3
 - Имя    - пустое
-- Пароль - из основного файла входа
+- Пароль - из файла плагина
 - База   - ../var/products.db
 
 Часть контейнеров убрана из docker-compose. Они касались MySQL.  
@@ -268,4 +268,13 @@ https://symfony.com/bundles/DoctrineFixturesBundle/current/index.html
 
     bin/console dbal:run-sql "SELECT * FROM product"
 
-## 
+## Service Container
+
+https://symfony.com/doc/current/service_container.html
+
+Получение данных из БД для вывода на экран.  
+Используются helper методы типа findAll(), find($id) и др.:
+
+https://symfony.com/doc/current/doctrine.html#fetching-objects-from-the-database
+
+

@@ -15,9 +15,8 @@ services:
         - ./:/var/www/html
 
 # Совет CLI при удалении контейнеров из этого файла и запуске команды
-# docker-compose -up d 
-# :
+# docker-compose up -d :
 # If you removed or renamed this service in your compose file, 
 # you can run this command with the --remove-orphans flag to clean it up
 # То есть
-# docker-compose -up d --remove-orphans
+# docker-compose up -d --remove-orphans

@@ -277,4 +277,10 @@ https://symfony.com/doc/current/service_container.html
 
 https://symfony.com/doc/current/doctrine.html#fetching-objects-from-the-database
 
+## Displaying data. CSS
+
+https://simplecss.org/  
+https://github.com/kevquirk/simple.css/wiki/Getting-Started-With-Simple.css  
+
+
 

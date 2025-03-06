@@ -19,16 +19,16 @@ class ProductController extends AbstractController
         // и вызов нужного класса в качестве аргумента здесь в методе index()
         // как index(ProductRepository $repository)
 
-        $products = $repository->findAll();
+        // $products = $repository->findAll();
 
         // отображает данные дальше, скрипт не останавливается
         // dump($products);
 
         // не отображает данные дальше, конец скрипта
-        dd($products);
+        //dd($products);
         
         return $this->render('product/index.html.twig', [
-            'controller_name' => 'ProductController',
+            'products' => $repository->findAll(),
         ]);
     }
 }

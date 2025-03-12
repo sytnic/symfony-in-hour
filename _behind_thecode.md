@@ -282,5 +282,15 @@ https://symfony.com/doc/current/doctrine.html#fetching-objects-from-the-database
 https://simplecss.org/  
 https://github.com/kevquirk/simple.css/wiki/Getting-Started-With-Simple.css  
 
+## Profiler
 
+Profiler нужен для доступа к SQL-запросам. Он добавляет tool-bar в низу страницы.
+
+https://symfony.com/doc/current/profiler.html
+
+Установка
+
+    composer require --dev symfony/profiler-pack
+
+##
 

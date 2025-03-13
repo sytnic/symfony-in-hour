@@ -44,7 +44,15 @@ class ProductController extends AbstractController
         // посмотреть полученное
         //dd($id);
 
-        $product = $repository->findOneBy(['id'=>$id]);
+        //$product = $repository->findOneBy(['id'=>$id]);
+        // другая вариация того же самого, благодаря использованию $id
+        $product = $repository->find($id);
+
+        // вызов 404, если идентификатор не найден,
+        // вид страницы зависит от значения константы APP_ENV в файле .env
+        if ($product === null) {
+            throw $this->createNotFoundException('Product not found');
+        }
 
         return $this->render('product/show.html.twig', [
             'product' => $product

@@ -297,3 +297,8 @@ https://symfony.com/doc/current/profiler.html
 Метод show($id)
 
 <img src="img/show-id.jpg" alt="drawing" width="600"/>
+
+Отображение страницы 404 со значением APP_ENV=prod в .env.  
+С APP_ENV=dev отображается отладочная информация.  
+
+<img src="img/404-prod.jpg" alt="drawing" width="600"/>

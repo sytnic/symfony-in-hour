@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use App\Repository\ProductRepository;
+use App\Entity\Product;
 
 class ProductController extends AbstractController
 {
@@ -39,21 +40,8 @@ class ProductController extends AbstractController
     // применяется регулярное выражение <\d+> для ограничения такого поведения
     // и применения только цифр
     #[Route('/product/{id<\d+>}')]
-    public function show($id, ProductRepository $repository): Response 
+    public function show(Product $product): Response 
     {
-        // посмотреть полученное
-        //dd($id);
-
-        //$product = $repository->findOneBy(['id'=>$id]);
-        // другая вариация того же самого, благодаря использованию $id
-        $product = $repository->find($id);
-
-        // вызов 404, если идентификатор не найден,
-        // вид страницы зависит от значения константы APP_ENV в файле .env
-        if ($product === null) {
-            throw $this->createNotFoundException('Product not found');
-        }
-
         return $this->render('product/show.html.twig', [
             'product' => $product
         ]);

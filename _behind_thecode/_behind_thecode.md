@@ -302,3 +302,33 @@ https://symfony.com/doc/current/profiler.html
 С APP_ENV=dev отображается отладочная информация.  
 
 <img src="img/404-prod.jpg" alt="drawing" width="600"/>
+
+Вместо использования такого метода
+
+```php
+    public function show($id, ProductRepository $repository): Response 
+    {       
+        $product = $repository->find($id);
+       
+        if ($product === null) {
+            throw $this->createNotFoundException('Product not found');
+        }
+
+        return $this->render('product/show.html.twig', [
+            'product' => $product
+        ]);
+    }
+```
+
+можно писать так
+
+```php
+ public function show(Product $product): Response 
+    {
+        return $this->render('product/show.html.twig', [
+            'product' => $product
+        ]);
+    }
+
+```
+

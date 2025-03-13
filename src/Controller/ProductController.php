@@ -39,10 +39,16 @@ class ProductController extends AbstractController
     // применяется регулярное выражение <\d+> для ограничения такого поведения
     // и применения только цифр
     #[Route('/product/{id<\d+>}')]
-    public function show($id): Response 
+    public function show($id, ProductRepository $repository): Response 
     {
         // посмотреть полученное
-        dd($id);
+        //dd($id);
+
+        $product = $repository->findOneBy(['id'=>$id]);
+
+        return $this->render('product/show.html.twig', [
+            'product' => $product
+        ]);
 
     }
 }

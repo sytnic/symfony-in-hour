@@ -292,5 +292,8 @@ https://symfony.com/doc/current/profiler.html
 
     composer require --dev symfony/profiler-pack
 
-##
+## Reading records
 
+Метод show($id)
+
+<img src="img/show-id.jpg" alt="drawing" width="600"/>

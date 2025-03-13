@@ -39,7 +39,7 @@ class ProductController extends AbstractController
     // Т.к. $id может принять любое значение, даже строку,
     // применяется регулярное выражение <\d+> для ограничения такого поведения
     // и применения только цифр
-    #[Route('/product/{id<\d+>}')]
+    #[Route('/product/{id<\d+>}', name: 'product_show' )]
     public function show(Product $product): Response 
     {
         return $this->render('product/show.html.twig', [

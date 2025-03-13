@@ -332,3 +332,8 @@ https://symfony.com/doc/current/profiler.html
 
 ```
 
+После настройки имени маршрута и создания ссылки в шаблоне работает переход по ссылкам и id.
+
+<img src="img/link-product-id.jpg" alt="drawing" width="600"/>
+
+## 

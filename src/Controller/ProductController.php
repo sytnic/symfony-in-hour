@@ -9,6 +9,7 @@ use App\Repository\ProductRepository;
 
 class ProductController extends AbstractController
 {
+    // показать все записи
     #[Route('/products', name: 'product_index')]
     public function index(ProductRepository $repository): Response
     {
@@ -30,5 +31,18 @@ class ProductController extends AbstractController
         return $this->render('product/index.html.twig', [
             'products' => $repository->findAll(),
         ]);
+    }
+
+    // показать одну запись
+    // {id} - называется корневой переменной, Route variable.
+    // Т.к. $id может принять любое значение, даже строку,
+    // применяется регулярное выражение <\d+> для ограничения такого поведения
+    // и применения только цифр
+    #[Route('/product/{id<\d+>}')]
+    public function show($id): Response 
+    {
+        // посмотреть полученное
+        dd($id);
+
     }
 }

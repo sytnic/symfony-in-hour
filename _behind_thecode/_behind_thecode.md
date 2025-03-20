@@ -336,4 +336,31 @@ https://symfony.com/doc/current/profiler.html
 
 <img src="img/link-product-id.jpg" alt="drawing" width="600"/>
 
-## 
+## Forms
+
+https://symfony.com/doc/current/forms.html
+
+Установка
+
+    composer require symfony/form
+
+Форму можно создать внутри метода контроллера, 
+
+https://symfony.com/doc/current/forms.html#creating-forms-in-controllers
+
+но рекомендуется создать форму в отдельном классе, чтобы код контроллера был максимально коротким и простым.  
+
+https://symfony.com/doc/current/forms.html#creating-form-classes  
+
+Создаём класс фомы через Maker:  
+
+    bin/console make:form
+
+Далее будут заданы вопросы о названии класса, сущности, ответы такие:    
+    
+    > Product
+    > Product 
+
+В результате в папке source/form будет создан класс ProductType.  
+После некоторых добавлений кода, будет отображаться форма.  
+

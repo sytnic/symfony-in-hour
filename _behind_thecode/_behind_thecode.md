@@ -364,6 +364,8 @@ https://symfony.com/doc/current/forms.html#creating-form-classes
 В результате в папке source/form будет создан класс ProductType.  
 После некоторых добавлений кода, будет отображаться форма.  
 
+---
+
 Типы форм. Form Types  
 
 https://symfony.com/doc/current/forms.html#form-types
@@ -371,6 +373,12 @@ https://symfony.com/doc/current/forms.html#form-types
 https://symfony.com/doc/current/reference/forms/types.html
 
 https://symfony.com/doc/current/reference/forms/types/submit.html
+
+---
+
+Ручная настройка форм
+
+https://symfony.com/doc/current/form/form_customization.html#form-functions-and-variables-reference
 
 
 

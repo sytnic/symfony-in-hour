@@ -380,5 +380,19 @@ https://symfony.com/doc/current/reference/forms/types/submit.html
 
 https://symfony.com/doc/current/form/form_customization.html#form-functions-and-variables-reference
 
+## Request
+
+В обычном PHP проверяют отправку формы через глобальные переменные.  
+
+```php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    dd($_POST);
+}
+```
+
+В Symfony эти возможности встроены в объект `Request()`. Это значит, что можно не использовать суперглобальные переменные.  
+
+https://symfony.com/doc/current/components/http_foundation.html  
+https://symfony.com/doc/current/components/http_foundation.html#request  
 
 

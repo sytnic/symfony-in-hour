@@ -9,6 +9,7 @@ use App\Repository\ProductRepository;
 use App\Entity\Product;
 use App\Form\ProductType;
 use Symfony\Component\HttpFoundation\Request;
+use Doctrine\ORM\EntityManagerInterface;
 
 class ProductController extends AbstractController
 {
@@ -51,14 +52,31 @@ class ProductController extends AbstractController
     }
 
     #[Route('/product/new', name: 'product_new')]
-    public function new(Request $request): Response
+    public function new(Request $request, EntityManagerInterface $manager): Response
     {
-        $form = $this->createForm(ProductType::class);
+        $product = new Product;
+
+        $form = $this->createForm(ProductType::class, $product);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted()) {
-            dd($request->request->all());
+
+            // добавляем данные из формы в БД
+            $manager->persist($product);
+            $manager->flush();
+
+            // заменяем вывод dd() на другой,
+            // здесь мы получали массив
+            //dd($request->request->all());            
+            // теперь получаем объект Product
+            //dd($product);
+
+            // сразу переходим на страницу созданного продукта,
+            // передаём имя маршрута product_show и id продукта
+            return $this->redirectToRoute('product_show', [
+                'id' => $product->getId(),
+            ]); 
         }
 
         return $this->render('product/new.html.twig', [

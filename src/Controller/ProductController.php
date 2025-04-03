@@ -68,7 +68,7 @@ class ProductController extends AbstractController
 
             $this->addFlash(
                 'notice',
-                'Product crated successfully!'
+                'Product created successfully!'
             );
 
             // заменяем вывод dd() на другой,
@@ -85,6 +85,39 @@ class ProductController extends AbstractController
         }
 
         return $this->render('product/new.html.twig', [
+            'form' => $form
+        ]);
+    }
+
+    #[Route('/product/{id<\d+>}/edit', name: 'product_edit' )]
+    public function edit(Product $product, Request $request, EntityManagerInterface $manager): Response
+    {
+        $form = $this->createForm(ProductType::class, $product);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            // добавляем данные из формы в БД
+            
+            // эта строка не нужна, т.к. запись уже существует
+            // $manager->persist($product);
+            
+            $manager->flush();
+
+            $this->addFlash(
+                'notice',
+                'Product updated successfully!'
+            );            
+
+            // сразу переходим на страницу созданного продукта,
+            // передаём имя маршрута product_show и id продукта
+            return $this->redirectToRoute('product_show', [
+                'id' => $product->getId(),
+            ]); 
+        }
+
+        return $this->render('product/edit.html.twig', [
             'form' => $form
         ]);
     }

@@ -1,0 +1,11 @@
+{# _ нижнее подчеркивание говорит о шаблоне, 
+   не связанном с методами контроллера #}
+
+{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+    {{ form_row(form.name) }}
+    {{ form_row(form.description) }}
+    {{ form_row(form.size) }}
+    {{ form_row(form.save, {'label': 'Save'}) }}
+
+{{ form_end(form) }}

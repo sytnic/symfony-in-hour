@@ -428,4 +428,10 @@ https://symfony.com/doc/current/validation.html#using-the-validator-service
 
 говорит о том, что поля формы можно не валидировать. Осталось от опытов до валидации.  
 
+## Flash messages
+
+https://symfony.com/doc/current/session.html#flash-messages
+
+Flash messages существуют для выдачи мгновенных сообщений, например, "эта запись сохранена".  
+
 ## 

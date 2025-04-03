@@ -66,6 +66,11 @@ class ProductController extends AbstractController
             $manager->persist($product);
             $manager->flush();
 
+            $this->addFlash(
+                'notice',
+                'Product crated successfully!'
+            );
+
             // заменяем вывод dd() на другой,
             // здесь мы получали массив
             //dd($request->request->all());            

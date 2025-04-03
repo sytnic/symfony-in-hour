@@ -395,4 +395,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 https://symfony.com/doc/current/components/http_foundation.html  
 https://symfony.com/doc/current/components/http_foundation.html#request  
 
+## Validation
 
+Интересное наблюдение. - Форма в Edge ведёт себя по-другому, чем в Firefox. В Edge встроена проверка на числовое поле в форме, и Edge не дает ввести текст в числовое поле. На самом деле, в самой форме нет такого поведения. Firefox соблюдает поведение по умолчанию, и даёт ввести текст. Однако, и это наверно уже правило HTML, форма, после ввода текста и попытки отправки требует ввести число, не отправляя форому.  
+Вывод - использовать Firefox.
+
+Для валидациии в Symfony есть Валидатор
+
+https://symfony.com/doc/current/validation.html
+
+Установка
+
+    composer require symfony/validator
+
+Далее нужно настроить ограничения валидации в сущности (модели) Product.
+
+https://symfony.com/doc/current/validation.html#supported-constraints
+
+Некторые ограничения имеют параметры, например, проверка типа (Type).  
+
+Ограничения можно указывать в отдельном файле, а не в сущности, но так делают редко.
+
+Чтобы проверить объект Product, нужно использовать Сервис Валидатора:  
+
+https://symfony.com/doc/current/validation.html#using-the-validator-service
+
+Однако в компонент Формы уже встроен Cервис Валидатора. Поэтому можно сразу использовать метод `$form->isValid()` .  
+
+Это значение в шаблоне
+
+    {'attr': {'novalidate': 'novalidate'}}
+
+говорит о том, что поля формы можно не валидировать. Осталось от опытов до валидации.  
+
+## 

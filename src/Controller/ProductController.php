@@ -60,7 +60,7 @@ class ProductController extends AbstractController
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()) {
 
             // добавляем данные из формы в БД
             $manager->persist($product);

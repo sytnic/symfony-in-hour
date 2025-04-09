@@ -121,4 +121,29 @@ class ProductController extends AbstractController
             'form' => $form
         ]);
     }
+
+    #[Route('/product/{id<\d+>}/delete', name: 'product_delete')]
+    public function delete(Request $request, Product $product, EntityManagerInterface $manager): Response
+    {
+        if($request->isMethod('POST')) {
+
+            // удаляем
+            $manager->remove($product);
+            $manager->flush();
+
+            // отправляем сообщение
+            $this->addFlash(
+                'notice',
+                'Product deleted successfully!'
+            );
+
+            // редирект
+            return $this->redirectToRoute('product_index');
+        }
+
+        // рендерим вью
+        return $this->render('product/delete.html.twig', [
+            'id' => $product->getId()
+        ]);
+    }
 }

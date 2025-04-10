@@ -1,3 +1,11 @@
+### Код проекта
+
+https://github.com/daveh/symfony-crud-example
+
+### Course:
+
+https://www.youtube.com/watch?v=i_jgWZItCGI
+
 ## Install
 
     composer create-project symfony/skeleton:"7.2.x" my_project_directory
@@ -434,4 +442,44 @@ https://symfony.com/doc/current/session.html#flash-messages
 
 Flash messages существуют для выдачи мгновенных сообщений, например, "эта запись сохранена".  
 
-## 
+## Webapp packages
+
+https://symfony.com/doc/current/setup.html#creating-symfony-applications
+
+При создании веб-приложений, не обязательно устанавливать пакеты по отдельности. Многие из них могут быть установлены с помощью флага `--webapp` при установке Symfony.
+
+    symfony new my_project_directory --version="7.2.x" --webapp
+
+## CRUD generator
+
+С помощью Maker'a можно создать CRUD автоматически. 
+
+Список команд Maker'a
+
+     bin/console list make
+
+Помощь по команде CRUD
+
+    bin/console help make:crud
+
+> Пример создания CRUD
+
+Сначала создаём класс сущности
+
+    bin/console make:entity
+
+ <img src="img/entity.jpg" alt="drawing" width="600"/>
+
+Создаём CRUD для этой сущности
+
+    bin/console make:crud
+
+После ответов на вопросы будут созданы файлы
+- контроллер
+- класс формы
+- шаблоны
+
+<img src="img/crud.jpg" alt="drawing" width="600"/>
+
+
+---
